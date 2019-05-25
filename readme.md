@@ -22,9 +22,19 @@ module "test" {
 }
 ```
 
-## Test
+## Terraform Azurerm Container Registry 
 
-Currently Not Available
+This module seeks to create an Azure Container Registry for the user.
+
+## Usage
+```hcl-terraform
+module "terraform-azurerm-container-registry"{
+  source   = "https://github.com/DanielMabbett/terraform-azure-container-registry.git"
+  resource_group_name     = "rg-registry-dev"
+  location = "westeurope"
+  registry_georeplications = "westeurope"
+}
+```
 
 ## Authors
 
