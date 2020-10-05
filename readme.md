@@ -1,6 +1,6 @@
 # terraform-azurerm-network
 
-![terratest](https://github.com/DanielMabbett/terraform-azurerm-network/workflows/terratest/badge.svg)
+![terratest](https://github.com/DanielMabbett/terraform-azurerm-container-registry/workflows/terratest/badge.svg)
 
 ## Create a Container Registry Environment with Terraform
 
