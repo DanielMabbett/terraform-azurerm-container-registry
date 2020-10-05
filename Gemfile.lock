@@ -1,0 +1,20 @@
+GIT
+  remote: https://github.com/Azure/terramodtest.git
+  revision: 99a7a88cfd60176c8430e44220dc77a02729aedc
+  specs:
+    terramodtest (0.7.0)
+      colorize (~> 0.8.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    colorize (0.8.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  terramodtest!
+
+BUNDLED WITH
+   2.1.4
