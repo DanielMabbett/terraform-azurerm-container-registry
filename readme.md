@@ -26,33 +26,31 @@ resource "azurerm_resource_group" "test" {
   location = var.location
 }
 
-module "network" {
+module "container_environment" {
   source = "../.."
 
   depends_on = [azurerm_resource_group.test]
 
-  resource_group_name = azurerm_resource_group.test.name
-  location = azurerm_resource_group.test.location
+  name                = "acctestcr"
+  resource_group_name = "rg-container-registry-test"
+  location            = "north europe"
+  sku                 = "premium"
+  enable_admin        = false
 
-  name = "1stacctvnet"
-  address_space = ["10.0.0.0/16"]
-
-  subnets = [
+  webhooks = [
     {
-      vnet_name        = "1stacctvnet"
-      name             = "management"
-      address_prefixes = ["10.0.1.0/24"]
+      name        = "mywebhook"
+      service_uri = "https://mywebhookreceiver.example/mytag"
+      status      = "enabled"
+      scope       = "mytag:*"
+      actions     = ["push"]
+      custom_headers = {
+        "Content-Type" = "application/json"
+      }
     },
   ]
 }
 
-output "vnet_ids" {
-  value = module.network.vnet_ids
-}
-
-output "vnet_names" {
-  value = module.network.vnet_names
-}
 ```
 
 ## Test
