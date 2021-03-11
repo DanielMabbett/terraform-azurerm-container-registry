@@ -1,4 +1,4 @@
-# terraform-azurerm-network
+# terraform-azurerm-container-registry
 
 ![terratest](https://github.com/DanielMabbett/terraform-azurerm-container-registry/workflows/terratest/badge.svg)
 
