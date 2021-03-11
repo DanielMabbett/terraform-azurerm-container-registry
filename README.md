@@ -125,6 +125,10 @@ This runs the full tests:
 docker run --rm azure-network /bin/bash -c "bundle install && rake full"
 ```
 
+## Contributing 
+
+We welcome contributors!
+
 ## Authors
 
 Originally created by [Daniel Mabbett](http://github.com/danielmabbett)
