@@ -32,8 +32,8 @@ module "container_environment" {
   depends_on = [azurerm_resource_group.test]
 
   name                = "acctestcr"
-  resource_group_name = "rg-container-registry-test"
-  location            = "north europe"
+  resource_group_name = azurerm_resource_group.test.name
+  location            = azurerm_resource_group.test.location
   sku                 = "premium"
   enable_admin        = false
 
