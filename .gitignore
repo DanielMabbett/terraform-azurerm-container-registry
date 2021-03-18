@@ -8,3 +8,6 @@
 # Module directory
 .terraform/
 
+# Locks
+*.lock.hcl
+*.lock.info

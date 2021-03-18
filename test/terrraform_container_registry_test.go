@@ -4,7 +4,6 @@ import (
 	"testing"
 
 	"github.com/gruntwork-io/terratest/modules/terraform"
-	"github.com/gruntwork-io/terratest/modules/test-structure"
 )
 
 func TestTerraformNetwork(t *testing.T) {
@@ -27,8 +26,8 @@ func TestTerraformNetwork(t *testing.T) {
 	test_structure.RunTestStage(t, "validate", func() {
 		terraformOptions := test_structure.LoadTerraformOptions(t, fixtureFolder)
 
-		vnetID := terraform.Output(t, terraformOptions, "vnet_id")
-		if len(vnetID) <= 0 {
+		registryID := terraform.Output(t, terraformOptions, "container_registry_id")
+		if len(registryID) <= 0 {
 			t.Fatal("Wrong output")
 		}
 	})
