@@ -1,4 +1,4 @@
-# terraform-azurerm-network
+# terraform-azurerm-container-registry
 
 ![terratest](https://github.com/DanielMabbett/terraform-azurerm-container-registry/workflows/terratest/badge.svg)
 
@@ -21,20 +21,13 @@ variable "location" {
   default = "north europe"
 }
 
-resource "azurerm_resource_group" "test" {
-  name     = "acct-${random_id.rg_name.hex}"
-  location = var.location
-}
-
 module "container_environment" {
   source = "../.."
 
-  depends_on = [azurerm_resource_group.test]
-
-  name                = "acctestcr"
-  resource_group_name = "rg-container-registry-test"
-  location            = "north europe"
-  sku                 = "premium"
+  name                = "acctacr${random_id.rg_name.hex}"
+  resource_group_name = "rg-acct-acr-${random_id.rg_name.hex}"
+  location            = "North Europe"
+  sku                 = "Premium"
   enable_admin        = false
 
   webhooks = [
@@ -49,7 +42,17 @@ module "container_environment" {
       }
     },
   ]
+
+  tags = {
+    Purpose     = "Testing"
+    Environment = "Test"
+  }
 }
+
+output "container_registry_id" {
+  value = module.container_environment.container_registry_id
+}
+
 
 ```
 
@@ -124,6 +127,10 @@ This runs the full tests:
 ```sh
 docker run --rm azure-network /bin/bash -c "bundle install && rake full"
 ```
+
+## Contributing 
+
+We welcome contributors!
 
 ## Authors
 

@@ -23,8 +23,8 @@ variable "enable_admin" {
   description = "Enable admin for the Azure Container Registry"
 }
 
-variable "georeplications" {
-  default     = ""
+variable "georeplication_locations" {
+  default     = []
   description = "Georeplication regions for the Azure Container Registry"
 }
 
@@ -40,3 +40,5 @@ variable "webhooks" {
   }))
   default = []
 }
+
+variable "tags" {}
