@@ -39,3 +39,7 @@ module "container_environment" {
     },
   ]
 }
+  
+output "container_registry_id" {
+  value = module.container_environment.container_registry_id
+}
